@@ -162,7 +162,7 @@ MobileAlerts.prototype.OnFinishLaunching = function()
 	while(m !== null) {				// get each sensor serial and name.
 		s = m[MatchType.Serial];
 		if (!Platform.Accessories[s]) {		// known serial?
-			n = cleanUmlaute(m[MatchType.Name]);
+			n = cleanUmlauts(m[MatchType.Name]);
 			if (Platform.VerboseLogging) {
 				Platform.log('Adding Sensor "' + n + '" with Serial ' + s + '.');
 			}
@@ -552,7 +552,7 @@ MobileAlerts.prototype.removeAccessory = function(mySerial)
 	delete Platform.Accessories[mySerial];	//wichtig, sonst funktioniert reset nicht, da a bislang nicht eigentlich entfernt wurde.
 }
 
-function cleanUmlaute(myName) {
+function cleanUmlauts(myName) {
 	myName=myName.replace(/&#228;/g, "ä");
 	myName=myName.replace(/&#246;/g, "ö");
 	myName=myName.replace(/&#252;/g, "ü");
