@@ -552,7 +552,7 @@ MobileAlerts.prototype.removeAccessory = function(mySerial)
 	delete Platform.Accessories[mySerial];	//wichtig, sonst funktioniert reset nicht, da a bislang nicht eigentlich entfernt wurde.
 }
 
-function cleanUmlauts(myName) {
+function cleanUmlaute(myName) {
 	myName=myName.replace(/&#228;/g, "ä");
 	myName=myName.replace(/&#246;/g, "ö");
 	myName=myName.replace(/&#252;/g, "ü");
