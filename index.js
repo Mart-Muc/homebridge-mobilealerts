@@ -3,17 +3,17 @@
 var POLLING_INTERVAL			= 07 * 60 * 1000;   // 7 minutes
 var WAIT_FOR_DATA_INTERVAL		= 01 * 01 * 1000;   // 1 second
 
-var MA10006_TEMPERATURE_INSIDE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
-var MA10006_TEMPERATURE_OUTSIDE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10006_TEMPERATURE_INSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10006_TEMPERATURE_OUTSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10006_HUMIDITY_INSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
-var MA10006_HUMIDITY_OUTSIDE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
+var MA10006_HUMIDITY_OUTSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 var MA10100_TEMPERATURE			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
-var MA10120_TEMPERATURE_INSIDE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
-var MA10120_TEMPERATURE_OUTSIDE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10120_TEMPERATURE_INSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10120_TEMPERATURE_OUTSIDE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10200_TEMPERATURE			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10200_HUMIDITY			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 var MA10320_TEMPERATURE			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
-var MA10320_TEMPERATURE_CABLE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10320_TEMPERATURE_CABLE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10320_HUMIDITY			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 var MA10350_TEMPERATURE			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10350_HUMIDITY			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
@@ -27,7 +27,7 @@ var MA10421_HUMIDITY_1			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/
 var MA10421_HUMIDITY_2			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 var MA10421_HUMIDITY_3			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 var MA10700_TEMPERATURE			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
-var MA10700_TEMPERATURE_CABLE	= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
+var MA10700_TEMPERATURE_CABLE		= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[ C]?<\\/h4>';
 var MA10700_HUMIDITY			= '.*?<h4>%SERIAL%[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<\\/h5>[\\s\\S]*?.*?<h4>(.*?)[%]?<\\/h4>';
 
 // ~~~ globals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +68,7 @@ function MobileAlerts(myLog, myConfig, myApi)
 	this.Config.log = this.Config.log || { verbose: false, HTML: false };
 	this.VerboseLogging = this.Config.log.verbose || false;
 	this.LogBodyHTML = this.Config.log.HTML || false;
-  this.ResetSensors = this.Config.reset || false;
+	this.ResetSensors = this.Config.reset || false;
 
 	if (!this.Config.iphoneid) {
 		Platform.log.error('iPhone-ID not configured properly! >> Stopping Initialization...');
@@ -124,10 +124,10 @@ MobileAlerts.prototype.OnFinishLaunching = function()
 	ay = [];
 	r = /.*?sensor-header[\s\S]*?.*?<a href.*?>(.*?)<\/a>[\s\S]*?.*?<h4>(.*?)<\/h4>/gi;
 	m = r.exec(Platform.LastData);
-	while(m !== null) {                     // get each sensor serial and name
+	while(m !== null) {                     	// get each sensor serial and name
 		n = cleanUmlauts(m[MatchType.Name]);	// from initial sensor data...
 		s = m[MatchType.Serial];
-		ay[s] = n;                            // ...and add it to test array.
+		ay[s] = n;				// ...and add it to test array.
 
 		m = r.exec(Platform.LastData);
 	}
@@ -136,14 +136,14 @@ MobileAlerts.prototype.OnFinishLaunching = function()
 		Platform.log('Resetting Sensors...');
 	}
 
-	//remove ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	for (var s in Platform.Accessories) {   // iterate each accessory.
-		if ((!ay[s] && s.indexOf('-') < 0) || Platform.ResetSensors) { // known serial or reset?
+// ~~~~ remove ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	for (var s in Platform.Accessories) {		// iterate each accessory.
+		if ((!ay[s] && s.indexOf('-') < 0) || Platform.ResetSensors) {	// known serial or reset?
 			if (Platform.VerboseLogging) {
 				Platform.log('Removing Sensor with Serial ' + s + '.');
 			}
 
-			Platform.removeAccessory(s);        // no! >> so we've to remove accessory!
+			Platform.removeAccessory(s);	// no! >> so we've to remove accessory!
 			var ao = new Array('OUT', 'CABLE', '1', '2', '3');
 			for (var i = 0; i < ao.length; i++) {
 				if (Platform.Accessories[s + '-' + ao[i]]) {
@@ -155,19 +155,19 @@ MobileAlerts.prototype.OnFinishLaunching = function()
 		}
 	}
 
-	r.lastIndex = 0;                        // re-set regex stato te be able to
-	m = r.exec(Platform.LastData);          // re-parse.
+	r.lastIndex = 0;				// re-set regex stato te be able to
+	m = r.exec(Platform.LastData);			// re-parse.
 
-	//add ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	while(m !== null) {                     // get each sensor serial and name.
+// ~~~~ add ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	while(m !== null) {				// get each sensor serial and name.
 		s = m[MatchType.Serial];
-		if (!Platform.Accessories[s]) {       // known serial?
+		if (!Platform.Accessories[s]) {		// known serial?
 			n = cleanUmlaute(m[MatchType.Name]);
 			if (Platform.VerboseLogging) {
 				Platform.log('Adding Sensor "' + n + '" with Serial ' + s + '.');
 			}
 
-			Platform.addAccessory(n, s);        // no! >> so we've to add new accessory!
+			Platform.addAccessory(n, s);	// no! >> so we've to add new accessory!
 			c++;
 		}
 
@@ -534,9 +534,9 @@ MobileAlerts.prototype.addAccessory = function(myName, mySerial) {
 
 MobileAlerts.prototype.removeAccessory = function(mySerial)
 {
- var Platform = this;
- var a;   // accessory
- var i;   // index
+	var Platform = this;
+	var a;   // accessory
+	var i;   // index
 
 	a = Platform.Accessories[mySerial];
 	if (!a) {
@@ -545,10 +545,11 @@ MobileAlerts.prototype.removeAccessory = function(mySerial)
 
 	Platform.log.warn('Removing Accessory ' + a.displayName + '.');
 
-  i = Platform.Accessories.indexOf(a);
-  Platform.Accessories.splice(i, 1);
-  Platform.Api.unregisterPlatformAccessories("homebridge-mobilealerts", "MobileAlerts", [a]);
-  delete Platform.Accessories[mySerial];    //wichtig, sonst funktioniert reset nicht, da a bislang nicht eigentlich entfernt wurde
+	i = Platform.Accessories.indexOf(a);
+	Platform.Accessories.splice(i, 1);
+	Platform.Api.unregisterPlatformAccessories("homebridge-mobilealerts", "MobileAlerts", [a]);
+
+	delete Platform.Accessories[mySerial];	//wichtig, sonst funktioniert reset nicht, da a bislang nicht eigentlich entfernt wurde.
 }
 
 function cleanUmlauts(myName) {
